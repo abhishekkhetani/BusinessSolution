@@ -1,0 +1,483 @@
+﻿@model BusinessSolution.Models.PaymentDetails
+@{
+    ViewBag.Title = "Welcome!";
+}
+@{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Pending",
+        Value = "false"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Paid",
+        Value = "true"
+    });
+}
+
+<style>
+    th {
+        white-space: nowrap;
+    }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.4/jquery.unobtrusive-ajax.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+@* Modal Start *@
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="exampleModalLabel">Delete Payment Details</h4>
+            </div>
+            @using (Ajax.BeginForm("DeletePaymentInfo", "Business",
+                       new AjaxOptions()
+                       {
+                           OnSuccess = "onSuccessDelete",
+                           HttpMethod = "POST",
+                           OnFailure = "onFailureDelete"
+                       }, new { @class = "form-horizontal" }))
+            { 
+
+                <div class="modal-body">
+                    @Html.HiddenFor(h => h.PaymentID)
+                    Are you sure you want to delete?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Delete" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New Payment Details</h4>
+            </div>
+            @*@using (Html.BeginForm("AddPaymentInfo", "Business", FormMethod.Post, new { @class = "form-horizontal" }))*@
+            @using (Ajax.BeginForm("AddPaymentInfo", "Business",
+                       new AjaxOptions()
+                       {
+                           OnSuccess = "onSuccess",
+                           HttpMethod = "POST",
+                           OnFailure = "onFailure"
+                       }, new { @class = "form-horizontal" }))
+            { 
+                <div class="modal-body">
+                    <div class="form-group">
+                        @Html.HiddenFor(h => h.PaymentID)
+                        <div class="col-sm-4">
+                            @Html.LabelFor(l => l.FirstName, new { @class = "" })
+                            @Html.TextBoxFor(t => t.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+                            @Html.ValidationMessageFor(t => t.FirstName)
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.LabelFor(l => l.MiddleName, new { @class = "" })
+                            @Html.TextBoxFor(t => t.MiddleName, new { @class = "form-control", @placeholder = "Middle Name" })
+                            @Html.ValidationMessageFor(t => t.MiddleName)
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.LabelFor(l => l.LastName, new { @class = "" })
+                            @Html.TextBoxFor(t => t.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+                            @Html.ValidationMessageFor(t => t.LastName)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            @Html.LabelFor(l => l.Description, new { @class = "" })
+                            @Html.TextBoxFor(t => t.Description, new { @class = "form-control", @placeholder = "Description" })
+                            @Html.ValidationMessageFor(t => t.Description)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            @*sr-only*@
+                            @Html.LabelFor(l => l.City, new { @class = "" })
+                            @Html.TextBoxFor(t => t.City, new { @class = "form-control", @placeholder = "City" })
+                            @Html.ValidationMessageFor(t => t.City)
+                        </div>
+                        <div class="col-sm-6">
+                            @Html.LabelFor(l => l.Phone, new { @class = "" })
+                            @Html.TextBoxFor(t => t.Phone, new { @class = "form-control", @placeholder = "Phone Number" })
+                            @Html.ValidationMessageFor(t => t.Phone)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            @Html.LabelFor(l => l.Rupees, new { @class = "" })
+                            @Html.TextBoxFor(t => t.Rupees, new { @class = "form-control", @placeholder = "Rupees" })
+                            @Html.ValidationMessageFor(t => t.Rupees)
+                        </div>
+                        <div class="col-sm-6">
+                            @Html.LabelFor(l => l.PaymentStatus, new { @class = "" })
+                            @Html.DropDownListFor(model => model.PaymentStatus, listItems, "Select Payment Status", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(t => t.PaymentStatus)
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Submit" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+@* Modal End *@
+
+<div class="content-box-large">
+    <div class="panel-heading">
+        <div class="panel-title">Payment Details</div>
+    </div>
+    <div class="panel-heading">
+        <!-- Trigger the modal with a button -->
+        <br />
+        <div class="panel-title">
+            <button type="button" id="create-payment" class="btn btn-primary" data-toggle="modal">New Payment</button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table id="example" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>PaymentID</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Description</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                    <th>Rupees</th>
+                    <th>Payment Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>Print</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th colspan="11" style="text-align: right">Total:</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+</div>
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>*@
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+
+<script type="text/javascript">
+
+    function onSuccess(data) {
+        console.log(data);
+        if (data == "error") {
+            return false;
+        }
+        $('#example').DataTable().ajax.reload();
+        $('#myModal').modal('hide');
+        toastr.success("Successfully Saved.");
+    }
+
+    function onFailure(data) {
+        $('#myModal').modal('hide');
+        toastr.error("Problem occured. Please try again.");
+        console.log(data);
+    }
+
+    function onSuccessDelete(data) {
+        $('#example').DataTable().ajax.reload();
+        $('#deleteModal').modal('hide');
+        toastr.success("Successfully Delete.");
+    }
+    function onFailureDelete(data) {
+        $('#deleteModal').modal('hide');
+        toastr.error("Problem occured. Please try again.");
+        console.log(data);
+    }
+
+
+
+    $('#create-payment').click(function () {
+
+        $('#myModal .modal-title').html('New Payment Details');
+        $('#myModal .btn-primary').html('Submit');
+
+        //Show Modal
+        $('#myModal').modal('show');
+
+    });
+
+    $('#myModal').on('hidden.bs.modal', function () {
+        $(this).find("input[type=text],textarea,select").val('').end();
+        $('#form1')[0].reset();
+    });
+
+    $(document).ready(function () {
+        $('#myModal #Rupees').keyup(function (event) {
+            // skip for arrow keys
+            if (event.which >= 37 && event.which <= 40) {
+                event.preventDefault();
+            }
+
+            $(this).val(function (index, value) {
+                value = value.replace(/,/g, '');
+                return numberWithCommas(value);
+            });
+        });
+
+        function numberWithCommas(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+            return parts.join(".");
+        }
+
+        // elsewhere... probably more likely in a utility namespace or module
+        function formatNumber(n) {
+            return n.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        }
+
+        var buttonCommon = {
+            exportOptions: {
+                format: {
+                    body: function (data, row, column, node) {
+                        // Strip $ from salary column to make it numeric
+                        return column === 5 ?
+                            data.replace(/[$,]/g, '') :
+                            data;
+                    }
+                }
+            }
+        };
+
+        $('#example').dataTable({
+            
+            "footerCallback": function (row, data, start, end, display) {
+                var api = this.api(), data;
+                // Remove the formatting to get integer data for summation
+                var intVal = function (i) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '') * 1 :
+                        typeof i === 'number' ?
+                        i : 0;
+                };
+
+                // Total over all pages
+                total = api
+                    .column(7)
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+                total = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+                // Total over this page
+                pageTotal = api
+                    .column(7, { page: 'current' })
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+                pageTotal = pageTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $(api.column(6).footer()).html('Total');
+                // Update footer
+                $(api.column(7).footer()).html(
+                    'Rs. ' + pageTotal + '/- (Rs. ' + total + '/- total)'
+                );
+            },
+
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'print',
+                    text: '<i class="fa fa-print"></i> Print all',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 7, 8],
+                    }
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="fa fa-print"></i> Print selected',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 7, 8],
+                        modifier: {
+                            selected: true
+                        }
+                    }
+                },
+                $.extend(true, {}, buttonCommon, {
+                    extend: 'copyHtml5'
+                }),
+                $.extend(true, {}, buttonCommon, {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i> Export to Excel',
+                    titleAttr: 'Export to Excel',
+                    title: 'Business Solution',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 7, 8],
+                    }
+                }),
+                $.extend(true, {}, buttonCommon, {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i> Export to PDF',
+                    titleAttr: 'Export to Excel',
+                    title: 'Business Solution',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 7, 8],
+                    }
+                })
+            ],
+            select: true,
+            "processing": true, // for show progress bar  
+            "serverSide": false, // for process server side  
+            "filter": true, // this is for disable filter (search box)  
+            "orderMulti": false, // for disable multiple column at once  
+            "ajax": {
+                "url": "/Business/GetPaymentInfo",
+                "type": "POST",
+                "datatype": "json"
+            },
+            "columnDefs":
+            [{
+                "targets": [0],
+                "visible": false,
+                "searchable": false
+            }],
+            "columns": [
+                { "data": "PaymentID", "name": "PaymentID", "autoWidth": true },
+                { "data": "FirstName", "name": "FirstName", "autoWidth": true },
+                { "data": "MiddleName", "name": "MiddleName", "autoWidth": true },
+                { "data": "LastName", "name": "LastName", "autoWidth": true },
+                { "data": "Description", "name": "Description", "autoWidth": true },
+                { "data": "City", "name": "City", "autoWidth": true },
+                { "data": "Phone", "name": "Phone", "autoWidth": true },
+                {
+                    "data": "Rupees", "name": "Rupees", "autoWidth": true,
+                    "render": function (data, type, full) {
+                        return '<div style="float: right;">' + formatNumber(data) + '/-</div>';
+                    }
+                },
+                {
+                    "render": function (data, type, full, meta) {
+                        if (full.PaymentStatus == true)
+                            return 'Paid';
+                        else
+                            return 'Pending';
+                    }
+                },
+                {
+                    data: null, render: function (data, type, row) {
+                        return '<button class="btn btn-info" onclick="EditData(' + row.PaymentID + ', \'' +
+                                                                                    row.FirstName + '\', \'' +
+                                                                                    row.MiddleName + '\', \'' +
+                                                                                    row.LastName + '\', \'' +
+                                                                                    row.Description + '\', \'' +
+                                                                                    row.City + '\', \'' +
+                                                                                    row.Phone + '\', \'' +
+                                                                                    row.Rupees + '\', ' +
+                                                                                    row.PaymentStatus + ')">Edit</button>';
+                    }
+                },
+                {
+                    data: null, render: function (data, type, row) {
+                        return "<a href='#' class='btn btn-danger' onclick=DeleteData('" + row.PaymentID + "'); >Delete</a>";
+                    }
+                },
+                {
+                    data: null, render: function (data, type, row) {
+                        if (row.PaymentStatus == true)
+                            return "<a class='btn btn-success' onclick=Print('" + row.PaymentID + "'); >Print</a>";
+                        else
+                            return "";
+                    }
+                },
+            ]
+        });
+    });
+
+    function DeleteData(PaymentID) {
+        //Bind values
+        $('#deleteModal #PaymentID').val(PaymentID);
+
+        //Show Modal
+        $('#deleteModal').modal('show');
+    }
+
+    function EditData(id, firstName, middleName, lastName, description, city, phone, rupees, paymentStatus) {
+
+        $('#myModal .modal-title').html('Update Payment Details');
+        $('#myModal .btn-primary').html('Update');
+
+        //Bind values
+        $('#myModal #PaymentID').val(id);
+        $('#myModal #FirstName').val(firstName);
+        $('#myModal #MiddleName').val(middleName);
+        $('#myModal #LastName').val(lastName);
+        $('#myModal #Description').val(description);
+        $('#myModal #City').val(city);
+        $('#myModal #Phone').val(phone);
+        $('#myModal #Rupees').val(rupees);
+        $('#myModal #PaymentStatus').val((paymentStatus == true) ? "true" : "false").attr("selected", "selected");
+
+        //Show Modal
+        $('#myModal').modal('show');
+    }
+
+    function Print(PaymentID) {
+        console.log("called = " + PaymentID);
+        var url = '@Url.Content("~/")' + "Business/PrintPaymentInfo";
+
+        $.post(url, { PaymentID: PaymentID }, function (data) {
+            if (data) {
+
+                //get the file name for download
+                if (data.fileName != "") {
+                    //use window.location.href for redirect to download action for download the file
+                    window.location.href = "@Url.RouteUrl(new { Controller = "Business", Action = "Download" })/?file=" + data.fileName;
+                }
+            }
+            else {
+                alert("Something Went Wrong!");
+            }
+        });
+    }
+</script>

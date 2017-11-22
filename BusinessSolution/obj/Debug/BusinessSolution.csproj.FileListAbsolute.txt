@@ -1,0 +1,73 @@
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\BusinessSolution.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\BusinessSolution.pdb
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\Antlr3.Runtime.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\EntityFramework.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\Microsoft.Web.Infrastructure.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\Newtonsoft.Json.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Net.Http.Formatting.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Http.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Http.WebHost.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Mvc.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Optimization.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Providers.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Razor.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Deployment.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Razor.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\WebGrease.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\EntityFramework.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\Newtonsoft.Json.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Net.Http.Formatting.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Http.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Http.WebHost.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Mvc.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.Razor.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Deployment.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Razor.xml
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.csprojResolveAssemblyReference.cache
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.pdb
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\EntityFramework.SqlServer.dll
+c:\users\dipesh\documents\visual studio 2012\Projects\BusinessSolution\BusinessSolution\bin\EntityFramework.SqlServer.xml
+F:\BusinessSolution\BusinessSolution\bin\libgcc_s_dw2-1.dll
+F:\BusinessSolution\BusinessSolution\bin\mingwm10.dll
+F:\BusinessSolution\BusinessSolution\bin\wkhtmltox0.dll
+F:\BusinessSolution\BusinessSolution\bin\libeay32.dll
+F:\BusinessSolution\BusinessSolution\bin\ssleay32.dll
+F:\BusinessSolution\BusinessSolution\bin\Antlr3.Runtime.dll
+F:\BusinessSolution\BusinessSolution\bin\Common.Logging.dll
+F:\BusinessSolution\BusinessSolution\bin\EntityFramework.dll
+F:\BusinessSolution\BusinessSolution\bin\EntityFramework.SqlServer.dll
+F:\BusinessSolution\BusinessSolution\bin\Microsoft.Web.Infrastructure.dll
+F:\BusinessSolution\BusinessSolution\bin\Newtonsoft.Json.dll
+F:\BusinessSolution\BusinessSolution\bin\Pechkin.dll
+F:\BusinessSolution\BusinessSolution\bin\Pechkin.Synchronized.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Net.Http.Formatting.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Http.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Http.WebHost.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Mvc.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Optimization.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Providers.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Razor.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Deployment.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.dll
+F:\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Razor.dll
+F:\BusinessSolution\BusinessSolution\bin\WebGrease.dll
+F:\BusinessSolution\BusinessSolution\bin\EntityFramework.xml
+F:\BusinessSolution\BusinessSolution\bin\EntityFramework.SqlServer.xml
+F:\BusinessSolution\BusinessSolution\bin\Newtonsoft.Json.xml
+F:\BusinessSolution\BusinessSolution\bin\System.Net.Http.Formatting.xml
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Http.xml
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Http.WebHost.xml
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Mvc.xml
+F:\BusinessSolution\BusinessSolution\bin\System.Web.Razor.xml
+F:\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.xml
+F:\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Deployment.xml
+F:\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Razor.xml
+F:\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.Migrations.InitialCreate.resources
+F:\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.csproj.GenerateResource.Cache
+F:\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.dll
+F:\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.pdb
+F:\BusinessSolution\BusinessSolution\bin\BusinessSolution.dll
+F:\BusinessSolution\BusinessSolution\bin\BusinessSolution.pdb
