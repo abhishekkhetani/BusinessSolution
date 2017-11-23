@@ -20,6 +20,24 @@ namespace BusinessSolution.Controllers
 
         public ActionResult Index()
         {
+            PaymentDetails paymentDetails = new PaymentDetails()
+            {
+                PaymentID = 0,
+                FirstName = "abhishek",
+                MiddleName = "Dineshbhai",
+                LastName = "khetani",
+                Description = "asdasd",
+                City = "Ahmebabad",
+                Phone = "9924047260",
+                Rupees = "2000",
+                PaymentStatus = true
+            };
+            using (var context = new EFCodeFirstContext())
+            {
+                context.PaymentDetails.Add(paymentDetails);
+                context.SaveChanges();
+            }
+
             return View();
         }
 

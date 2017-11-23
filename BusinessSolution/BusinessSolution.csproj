@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -147,6 +149,10 @@
     <Compile Include="Migrations\201711040847342_InitialCreate.cs" />
     <Compile Include="Migrations\201711040847342_InitialCreate.Designer.cs">
       <DependentUpon>201711040847342_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711230557160_abhishek.cs" />
+    <Compile Include="Migrations\201711230557160_abhishek.Designer.cs">
+      <DependentUpon>201711230557160_abhishek.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PaymentDetails.cs" />
@@ -1341,6 +1347,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711040847342_InitialCreate.resx">
       <DependentUpon>201711040847342_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711230557160_abhishek.resx">
+      <DependentUpon>201711230557160_abhishek.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
