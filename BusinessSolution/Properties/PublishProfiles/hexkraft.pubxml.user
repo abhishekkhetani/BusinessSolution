@@ -15,7 +15,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/04/2017 13:18:36</publishTime>
     </File>
     <File Include="bin/BusinessSolution.dll">
-      <publishTime>11/22/2017 22:35:28</publishTime>
+      <publishTime>11/23/2017 23:48:40</publishTime>
     </File>
     <File Include="bin/Common.Logging.dll">
       <publishTime>11/19/2017 15:48:13</publishTime>
@@ -3549,7 +3549,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/04/2017 13:17:33</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/22/2017 22:37:02</publishTime>
+      <publishTime>11/23/2017 23:49:14</publishTime>
     </File>
     <File Include="wkhtmltox0.dll">
       <publishTime>11/19/2017 15:48:16</publishTime>
