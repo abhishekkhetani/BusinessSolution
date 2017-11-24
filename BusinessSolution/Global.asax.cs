@@ -17,8 +17,8 @@ namespace BusinessSolution
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<EFCodeFirstContext>(null);
-
+            //Database.SetInitializer<EFCodeFirstContext>(null);
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EFCodeFirstContext>());
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

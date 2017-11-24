@@ -8,22 +8,26 @@ namespace BusinessSolution.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Students",
+                "dbo.PaymentDetails",
                 c => new
                     {
-                        StudentID = c.Int(nullable: false, identity: true),
-                        StudentName = c.String(),
-                        DateOfBirth = c.DateTime(nullable: false),
-                        Height = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Weight = c.Single(nullable: false),
+                        PaymentID = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(),
+                        MiddleName = c.String(),
+                        LastName = c.String(),
+                        Description = c.String(),
+                        City = c.String(),
+                        Phone = c.String(),
+                        Rupees = c.String(),
+                        PaymentStatus = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.StudentID);
+                .PrimaryKey(t => t.PaymentID);
             
         }
         
         public override void Down()
         {
-            DropTable("dbo.Students");
+            DropTable("dbo.PaymentDetails");
         }
     }
 }
