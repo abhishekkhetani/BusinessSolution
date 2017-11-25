@@ -108,9 +108,10 @@ C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\bin\System.We
 C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.xml
 C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\bin\System.Web.WebPages.Razor.xml
-C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.csprojResolveAssemblyReference.cache
 C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.Migrations.InitialCreate.resources
 C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.Migrations.abhishek.resources
 C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.csproj.GenerateResource.Cache
 C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.dll
 C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.pdb
+C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.csprojResolveAssemblyReference.cache
+C:\Users\Dipesh\Documents\GitHub\BusinessSolution\BusinessSolution\obj\Debug\BusinessSolution.Migrations.MyModel.resources

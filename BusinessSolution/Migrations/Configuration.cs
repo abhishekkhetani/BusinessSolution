@@ -10,7 +10,6 @@ namespace BusinessSolution.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "BusinessSolution.EFCodeFirstContext";
         }
 
         protected override void Seed(BusinessSolution.EFCodeFirstContext context)
