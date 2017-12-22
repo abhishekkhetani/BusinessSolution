@@ -207,6 +207,67 @@
 <script src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
 
 <script type="text/javascript">
+    $("#Phone").keypress(function (e) {
+    var key = e.which || e.charCode || e.keyCode || 0;
+    $phone = $(this);
+    console.log(key);
+    if (key === 9) {
+        return;
+    }
+    // Don't let them remove the starting '('
+    if ($phone.val().length === 1 && (key === 8 || key === 46)) {
+        $phone.val('(');
+        return false;
+    }
+        // Reset if they highlight and type over first char.
+    else if ($phone.val().charAt(0) !== '(') {
+        $phone.val('(' + $phone.val());
+    }
+    if ($phone.val().length > 13 && key != 8) {
+        e.preventDefault();
+    }
+
+    // Auto-format- do not expose the mask as the user begins to type
+    if (key !== 8 && key !== 9) {
+        if ($phone.val().length === 4) {
+            $phone.val($phone.val() + ')');
+        }
+        if ($phone.val().length === 5) {
+            $phone.val($phone.val() + ' ');
+        }
+        if ($phone.val().length === 9) {
+            $phone.val($phone.val() + '-');
+        }
+    }
+
+    // Allow numeric (and tab, backspace, delete) keys only
+    return (key == 8 ||
+            key == 9 ||
+            key == 46 ||
+            (key >= 48 && key <= 57) ||
+            (key >= 96 && key <= 105));
+})
+
+.bind('focus click', function () {
+    $phone = $(this);
+
+    if ($phone.val().length === 0) {
+        $phone.val('(');
+    }
+    else {
+        var val = $phone.val();
+        $phone.val('').val(val); // Ensure cursor remains at the end
+    }
+})
+
+.blur(function () {
+    $phone = $(this);
+
+    if ($phone.val() === '(') {
+        $phone.val('');
+    }
+});
+
 
     function onSuccess(data) {
         console.log(data);
@@ -248,7 +309,7 @@
     });
 
     $('#myModal').on('hidden.bs.modal', function () {
-        $(this).find("input[type=text],textarea,select").val('').end();
+        $(this).find("input[type=text],input[type=hidden],textarea,select").val('').end();
         $('#form1')[0].reset();
     });
 
@@ -381,7 +442,9 @@
                 "targets": [0],
                 "visible": false,
                 "searchable": false
-            }],
+            },
+            { className: "dt-right", "targets": [7] }
+            ],
             "columns": [
                 { "data": "PaymentID", "name": "PaymentID", "autoWidth": true },
                 { "data": "FirstName", "name": "FirstName", "autoWidth": true },
@@ -393,7 +456,7 @@
                 {
                     "data": "Rupees", "name": "Rupees", "autoWidth": true,
                     "render": function (data, type, full) {
-                        return '<div style="float: right;">' + formatNumber(data) + '/-</div>';
+                        return formatNumber(data);
                     }
                 },
                 {

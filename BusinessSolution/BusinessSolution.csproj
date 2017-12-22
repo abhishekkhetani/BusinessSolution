@@ -154,6 +154,10 @@
     <Compile Include="Migrations\201711230557160_abhishek.Designer.cs">
       <DependentUpon>201711230557160_abhishek.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711250747303_MyModel.cs" />
+    <Compile Include="Migrations\201711250747303_MyModel.Designer.cs">
+      <DependentUpon>201711250747303_MyModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PaymentDetails.cs" />
     <Compile Include="Models\Student.cs" />
@@ -162,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\facebook.png" />
+    <Content Include="Content\images\client_logo.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\sort_asc.png" />
     <Content Include="Content\images\sort_asc_disabled.png" />
@@ -237,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711230557160_abhishek.resx">
       <DependentUpon>201711230557160_abhishek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711250747303_MyModel.resx">
+      <DependentUpon>201711250747303_MyModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

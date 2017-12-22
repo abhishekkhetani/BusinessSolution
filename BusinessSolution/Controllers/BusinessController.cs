@@ -20,22 +20,42 @@ namespace BusinessSolution.Controllers
 
         public ActionResult Index()
         {
-            //PaymentDetails paymentDetails = new PaymentDetails()
+            //try
             //{
-            //    PaymentID = 0,
-            //    FirstName = "abhishek",
-            //    MiddleName = "Dineshbhai",
-            //    LastName = "khetani",
-            //    Description = "asdasd",
-            //    City = "Ahmebabad",
-            //    Phone = "9924047260",
-            //    Rupees = "2000",
-            //    PaymentStatus = true
-            //};
-            //using (var context = new EFCodeFirstContext())
+            //    PaymentDetails paymentDetails = new PaymentDetails()
+            //    {
+            //        PaymentID = 0,
+            //        FirstName = "abhishek",
+            //        MiddleName = "Dineshbhai",
+            //        LastName = "khetani",
+            //        Description = "asdasd",
+            //        City = "Ahmebabad",
+            //        Phone = "(992) 404-7260",
+            //        Rupees = "2000",
+            //        PaymentStatus = true
+            //    };
+            //    using (var context = new EFCodeFirstContext())
+            //    {
+            //        context.PaymentDetails.Add(paymentDetails);
+            //        context.SaveChanges();
+            //    }
+            //}
+            //catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             //{
-            //    context.PaymentDetails.Add(paymentDetails);
-            //    context.SaveChanges();
+            //    Exception raise = dbEx;
+            //    foreach (var validationErrors in dbEx.EntityValidationErrors)
+            //    {
+            //        foreach (var validationError in validationErrors.ValidationErrors)
+            //        {
+            //            string message = string.Format("{0}:{1}",
+            //                validationErrors.Entry.Entity.ToString(),
+            //                validationError.ErrorMessage);
+            //            // raise a new exception nesting
+            //            // the current instance as InnerException
+            //            raise = new InvalidOperationException(message, raise);
+            //        }
+            //    }
+            //    throw raise;
             //}
 
             return View();
@@ -141,7 +161,8 @@ namespace BusinessSolution.Controllers
                     .Replace("###Phone###", existPaymentDetails.Phone)
                     .Replace("###Description###", existPaymentDetails.Description)
                     .Replace("###Price###", existPaymentDetails.Rupees)
-                    .Replace("###Rupees###", existPaymentDetails.Rupees);
+                    .Replace("###Rupees###", existPaymentDetails.Rupees)
+                    .Replace("###Image###", System.Web.HttpContext.Current.Server.MapPath("~/Content/images/client_logo.jpg"));
 
                 var savePath = Server.MapPath("~/Pdf");
                 if (!Directory.Exists(savePath))
