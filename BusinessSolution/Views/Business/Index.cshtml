@@ -154,6 +154,9 @@
         <br />
         <div class="panel-title">
             <button type="button" id="create-payment" class="btn btn-primary" data-toggle="modal">New Payment</button>
+            <button type="button" id="btn-paid" class="btn btn-primary" data-toggle="modal">Paid</button>
+            <button type="button" id="btn-pending" class="btn btn-primary" data-toggle="modal">Pending</button>
+            <button type="button" id="btn-all" class="btn btn-primary" data-toggle="modal">All (Paid, Pending)</button>
         </div>
     </div>
     <div class="panel-body">
@@ -207,7 +210,29 @@
 <script src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
 
 <script type="text/javascript">
+
     $("#Phone").keypress(function (e) {
+        var key = e.which || e.charCode || e.keyCode || 0;
+        $phone = $(this);
+        if (key === 9) {
+            return;
+        }
+        if ($(this).val().length > 9)
+        {
+            return false;
+        }
+        if ($phone.val().length > 13 && key != 8) {
+            e.preventDefault();
+        }
+        // Allow numeric (and tab, backspace, delete) keys only
+        return (key == 8 ||
+            key == 9 ||
+            key == 46 
+            (key >= 48 && key <= 57) ||
+            (key >= 96 && key <= 105));
+
+    });
+    $("#Phone1").keypress(function (e) {
     var key = e.which || e.charCode || e.keyCode || 0;
     $phone = $(this);
     console.log(key);
@@ -543,4 +568,21 @@
             }
         });
     }
+   
+    $('#btn-pending, #btn-paid').click(function () {
+
+        $('#example').DataTable()
+            .columns(8)
+            .search($(this).text())
+            .draw();
+    });
+
+    $('#btn-all').click(function () {
+
+        $('#example').DataTable()
+            .columns().search('')
+           // .search('')
+            .draw();
+    });
+
 </script>

@@ -32,7 +32,7 @@ namespace BusinessSolution.Models
         public string City { get; set; }
         
         [Required(ErrorMessage="Phone number is required.")]
-        [StringLength(14, MinimumLength = 14, ErrorMessage = "Please enter proper phone number.")]
+        [StringLength(10, MinimumLength = 10, ErrorMessage = "Please enter proper phone number.")]
         public string Phone { get; set; }
 
         [Required(ErrorMessage="Rupees is required.")]

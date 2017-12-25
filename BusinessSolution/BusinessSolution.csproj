@@ -146,18 +146,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711040847342_InitialCreate.cs" />
-    <Compile Include="Migrations\201711040847342_InitialCreate.Designer.cs">
-      <DependentUpon>201711040847342_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711230557160_abhishek.cs" />
-    <Compile Include="Migrations\201711230557160_abhishek.Designer.cs">
-      <DependentUpon>201711230557160_abhishek.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711250747303_MyModel.cs" />
-    <Compile Include="Migrations\201711250747303_MyModel.Designer.cs">
-      <DependentUpon>201711250747303_MyModel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PaymentDetails.cs" />
     <Compile Include="Models\Student.cs" />
@@ -235,17 +223,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711040847342_InitialCreate.resx">
-      <DependentUpon>201711040847342_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711230557160_abhishek.resx">
-      <DependentUpon>201711230557160_abhishek.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711250747303_MyModel.resx">
-      <DependentUpon>201711250747303_MyModel.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
